@@ -1,2 +1,2 @@
 # own_upm_img_popper
-A Textpattern plugin that provides more powerful image display (admin side for own_upm_image)
+This is a fork upm_img_popper (http://forum.textpattern.com/viewtopic.php?id=15978) adapted to version TXP 4.6.2
