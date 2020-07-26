@@ -17,7 +17,7 @@
 // 1 = Plugin help is in raw HTML.  Not recommended.
 # $plugin['allow_html_help'] = 0;
 
-$plugin['version'] = '4.6.2.20161226';
+$plugin['version'] = '4.8.1.20200726';
 $plugin['author'] = 'Dmitry Shovchko';
 $plugin['author_uri'] = 'http://github.com/dshovchko';
 $plugin['description'] = 'More powerful image display';
@@ -407,7 +407,7 @@ css;
 	{
 		$app_mode = gps('app_mode');
 		if ($app_mode==='async') return;
-		
+
 		$view = gps('view');
 
 		if ($view == 'text' or empty($view))
@@ -461,7 +461,7 @@ form;
 		{
 			global $prefs;
 
-			$txt = gTxt('advanced_options');
+			$txt = gTxt('date_settings');
 			$lang_insert_image = upm_img_popper_gTxt('insert_image');
 
 			header("Content-type: text/javascript");
@@ -510,29 +510,17 @@ a.setAttribute('target', 'blank');
 a.setAttribute('href', '?event=upm_img_popper\u0026bm=1');
 
 var link = (document.createElementNS) ?
-	document.createElementNS('http://www.w3.org/1999/xhtml', 'h3') :
-	document.createElement('h3');
+	document.createElementNS('http://www.w3.org/1999/xhtml', 'h5') :
+	document.createElement('h5');
 
-link.setAttribute('className', 'plain'); // stupid IE
-link.setAttribute('class', 'plain');
 link.appendChild(a);
+
 
 // ---
 
-var h3s = document.getElementsByTagName('h3');
 
-for (var i = 0; i < h3s.length; i++)
-{
-	var h3 = document.getElementsByTagName('h3')[i];
-
-	if (h3.firstChild.firstChild)
-	{
-		if (h3.firstChild.firstChild.nodeValue == txt)
-		{
-			h3.parentNode.insertBefore(link, h3);
-		}
-	}
-}
+var el = document.querySelector('#txp-image-group #txp-image-group-content .article-image');
+el.parentNode.insertBefore(link, el);
 
 // ---
 // thanks Alex! <http://www.alexking.org/>
